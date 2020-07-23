@@ -7,7 +7,7 @@ const
   update,
   remove
 } = require('../../controllers/pizza-controller');
-
+console.log(create)
 router
 .route('/')
 .get(getAll)
