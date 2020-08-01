@@ -46,7 +46,10 @@ const pizzaController = {
   },
 
   update({ params, body }, res) {
-    Pizza.findOneAndUpdate({ _id: params.id}, body, {new: true})
+    Pizza.findOneAndUpdate({ _id: params.id}, body, {
+      new: true, 
+      runValidators: true
+    })
     .then(dbPizzaData => {
       if(!dbPizzaData) {
         if(!dbPizzaData) {

@@ -3,10 +3,14 @@ const moment = require('moment');
 
 const PizzaSchema = new Schema({
   pizza: {
-    type: String
+    type: String,
+    required: true,
+  trim: true
   },
   createdBy: {
-    type: String
+    type: String,
+    required: true,
+    trim: true
   },
   createdAt: {
     type: Date,
@@ -14,7 +18,10 @@ const PizzaSchema = new Schema({
     get: (val) => moment(val).format('MMM DD, YYYY [at] hh:mm a')
   },
   size: {
-    type: String
+    type: String,
+    required: true,
+    enum: ['Personal', 'Small', 'Medium', 'Large', 'Extra Large'],
+    default: 'Large'
   }, 
   toppings: [],
   comments: [
